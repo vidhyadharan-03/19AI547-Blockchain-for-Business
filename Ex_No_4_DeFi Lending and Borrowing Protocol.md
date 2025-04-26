@@ -49,7 +49,33 @@ contract DeFiLending {
     function deposit() public payable {
         require(msg.value > 0, "Deposit must be greater than zero");
         deposits[msg.sender] += msg.value;
-        emit Depo
+        emit Deposited(msg.sender, msg.value);
+    }
+
+    function borrow(uint256 amount) public payable {
+        require(msg.value >= (amount * liquidationThreshold) / 100, "Nota enough collateral");
+        borrowed[msg.sender] += amount;
+        collateral[msg.sender] += msg.value;
+        payable(msg.sender).transfer(amount);
+        emit Borrowed(msg.sender, amount, msg.value);
+    }
+    function reduceCollateral(address user, uint256 amount) public {
+    require(msg.sender == owner, "Only owner can reduce");
+    require(collateral[user] >= amount, "Not enough collateral to reduce");
+    collateral[user] -= amount;
+    }
+
+    function liquidate(address borrower) public {
+        require(collateral[borrower] < (borrowed[borrower] * liquidationThreshold) / 100, "Not eligible for liquidation");
+        uint256 debt = borrowed[borrower];
+        uint256 seizedCollateral = collateral[borrower];
+
+        borrowed[borrower] = 0;
+        collateral[borrower] = 0;
+        payable(msg.sender).transfer(seizedCollateral);
+        emit Liquidated(borrower, debt, seizedCollateral);
+    }
+}
 
 ```
 # Expected Output:
