@@ -1,3 +1,7 @@
+# EX.NO.3: SUPPLY CHAIN TRANSPARENCY FOR LUXURY GOODS
+# Name: VIDHYADHARAN R
+# Reg No: 212222110053
+
 # Aim:
 To develop a smart contract that tracks the supply chain of luxury goods, ensuring authenticity.
 # Algorithm:
@@ -49,6 +53,12 @@ contract LuxurySupplyChain {
 }
 ```
 # Expected Output:
+![Screenshot 2025-04-28 115016](https://github.com/user-attachments/assets/80bb61d0-2ab7-4cd6-bf91-d1e34b12a82f)
+
+![Screenshot 2025-04-28 115027](https://github.com/user-attachments/assets/2680bdf7-3dd2-4e9d-ad4a-8f16ddab6fd5)
+
+![Screenshot 2025-04-28 115036](https://github.com/user-attachments/assets/dcefb1ae-ea88-45c1-bff2-16775de6634c)
+
 A luxury good (e.g., a Rolex watch) is registered on-chain.
 
 
@@ -66,3 +76,4 @@ Teaches real-world supply chain use cases.
 
 # RESULT : 
 
+Thus ,the exection of the supply chain Transparency for Luxury Goods has executed Successfully.
